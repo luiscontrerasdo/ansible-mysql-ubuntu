@@ -1,4 +1,4 @@
-# ansible-mysql-ubuntu
+# Ansible Playbooks
 
 These are simple Ansible Playbooks for:
 
