@@ -1,0 +1,14 @@
+- hosts: yourgroupserver
+  user: putyouruser
+  sudo: yes
+  tasks:
+  - service: 
+    name: iptables
+    state: started
+  - name: Setting up access to MariaDB
+    command: service iptables start
+    command: /sbin/iptables -A INPUT -p tcp --dport 3306 ! -s ip-master -j DROP
+    command: /sbin/iptables -A INPUT -p tcp --dport 3306 ! -s ip-slave -j DROP
+  - service:
+    name: iptables
+    state: saved  
