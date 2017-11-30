@@ -1,0 +1,10 @@
+- hosts: yourgroupserver
+  user: putyouruser
+  sudo: yes
+  tasks:
+  - name: Update Packages List
+    apt: update_cache=yes
+    when: ansible_os_family == 'Debian'
+  - name: Upgrade packages
+    apt: upgrade=full
+    when: ansible_os_family == 'Debian'
